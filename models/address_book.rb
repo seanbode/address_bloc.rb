@@ -17,4 +17,12 @@ def add_entry(name, phone_number, email)
      end
      entries.insert(index, Entry.new(name, phone_number, email))
    end
+
+  def remove_entry(name, phone_number, email)
+     index = 0
+     entries.each do |entry|
+       if name == entry.name
+     entries.delete(entry)
+   end
+  end
  end
