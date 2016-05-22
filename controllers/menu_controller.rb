@@ -1,28 +1,24 @@
 	require_relative '../models/address_book'
  
-<<<<<<< HEAD
 class MenuController
 	attr_reader :address_book
-=======
- class MenuController
- 	attr_reader :address_book
->>>>>>> d720e6bd8412951170fb7258d334007788ee6cca
  
 	def initialize
 		@address_book = AddressBook.new
 	end
  
 	def main_menu
-<<<<<<< HEAD
 		puts "Main Menu - #{address_book.entries.count} entries"
 		puts "1 - View all entries"
 		puts "2 - Create an entry"
 		puts "3 - Search for an entry"
 		puts "4 - Import entries from a CSV"
 		puts "5 - Exit"
+		puts "6 - View Entry Number n"
 		print "Enter your selection: "
  
  	selection = gets.to_i
+ 	
 		case selection
        		when 1
         		system "clear"
@@ -43,6 +39,10 @@ class MenuController
 			when 5
  				puts "Good-bye!"
 				exit(0)
+			when 6
+				system "clear"
+				view_entry_by_n
+				main_menu
        		else
      			system "clear"
         		puts "Sorry, that is not a valid input"
@@ -76,7 +76,24 @@ class MenuController
      	system "clear"
      	puts "New entry created"
 	end
- 
+ 	
+   	def view_entry_by_n
+   	   	print "Which entry number?"
+   	   	choice = gets.chomp.to_i
+   	   system "clear"
+   	   
+   	   if choice < address_book.entries.count
+   			puts address_book.entries[choice ]
+			puts "press any key to return to the main menu."
+			gets.chomp
+			system "clear"
+		else
+			puts "please input valid entry number."
+			view_entry_by_n 
+			system "clear"
+		end
+	end
+ 	
 	def search_entries
 		
 		def read_csv
@@ -105,18 +122,3 @@ class MenuController
    		end # def submenu 
 	end #def search_entries
  end #class MenuController
-=======
-	puts "Main Menu - #{address_book.entries.count} entries"
-	puts "1 - View all entries"
-    puts "2 - Create an entry"
-    puts "3 - Search for an entry"
-    puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
-    print "Enter your selection: "
- 
-
-	selection = gets.to_i
-	puts "You picked #{selection}"
-	end
-end
->>>>>>> d720e6bd8412951170fb7258d334007788ee6cca

@@ -35,5 +35,6 @@
        expected_string = "Name: Ada Lovelace\nPhone Number: 010.012.1815\nEmail: augusta.king@lovelace.com"
        expect(entry.to_s).to eq(expected_string)
       end
-     end
+  end
+end
 end
