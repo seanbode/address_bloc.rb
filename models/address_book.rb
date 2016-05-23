@@ -12,7 +12,7 @@ class AddressBook
      	entries.each do |entry|
        		if name < entry.name
          		break
-       		end #if
+       		end #if # a precaution in case name is blank?
        		index += 1
 		end #each .. do
 		entries.insert(index, Entry.new(name, phone_number, email))
@@ -48,21 +48,9 @@ class AddressBook
 
 
 	def iterative_search(name)
-
-		lower = 0
- 		upper = entries.length - 1
-		while lower <= upper
-			mid = 0
-			first_name = entries[mid].name
-						
-			if name == first_name
-				return entries[mid]
-			elsif name > mid_name
-				lower = mid + 1
-    	   	end
-		end
-		return nil   		
-
+		entries.find do |entry|
+			entry.name == name
+    	end
    	end
 
 
